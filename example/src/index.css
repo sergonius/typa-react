@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.cursor {
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
+
+.cursor::after {
+  content: '|';
+}
+
+@keyframes blink {
+  0% {
+    opacity:1;
+  }
+
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
