@@ -2,14 +2,14 @@
 
 > Make words type themselves
 
-[![NPM](https://img.shields.io/npm/v/typa-react.svg)](https://www.npmjs.com/package/@sergonius/typa-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@sergonius/typa-react.svg)](https://www.npmjs.com/package/@sergonius/typa-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save typa-react
+npm install --save @sergonius/typa-react
 # or
-yarn add typa-react
+yarn add @sergonius/typa-react
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ It's a render prop, so you can use it however you want to.
 ```tsx
 import * as React from 'react';
 
-import Typa from 'typa-react';
+import Typa from '@sergonius/typa-react';
 
 class Example extends React.PureComponent {
   render() {
