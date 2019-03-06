@@ -2,7 +2,7 @@
 
 > Make words type themselves
 
-[![NPM](https://img.shields.io/npm/v/typa-react.svg)](https://www.npmjs.com/package/typa-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/typa-react.svg)](https://www.npmjs.com/package/@sergonius/typa-react) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
