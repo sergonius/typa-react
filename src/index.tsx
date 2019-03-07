@@ -10,107 +10,77 @@ interface Props {
 
 interface State {
   string: string;
-  currentWord: number;
-  currentLetter: number;
-  reverse: boolean;
 }
 
-export default class Typa extends React.PureComponent<
-  Props,
-  State
-> {
+export default class Typa extends React.PureComponent<Props, State> {
   state = {
     string: '',
-    currentWord: 0,
-    currentLetter: 0,
-    reverse: false,
   };
 
-  componentDidMount(): void {
-    const { speed, delay, loop } = this.props;
-    const { currentLetter, currentWord } = this.state;
+  currentLetter = 0;
+  currentWord = 0;
+  reverse = false;
 
-    this.typing(currentLetter, currentWord, speed, delay, loop, false);
+  componentDidMount(): void {
+    this.typing();
   }
 
-  typing(
-    currentLetter: number,
-    currentWord: number,
-    speed: number,
-    delay: number,
-    loop: boolean,
-    reverse?: boolean,
-  ): void {
-    const { strings } = this.props;
-    if (!reverse) {
-      if (strings[currentWord]) {
-        if (currentLetter < strings[currentWord].length) {
+  typing(): void {
+    const { strings, speed, delay, loop } = this.props;
+    let ms = speed;
+
+    if (!this.reverse) {
+      if (strings[this.currentWord]) {
+        if (this.currentLetter < strings[this.currentWord].length) {
           this.setState(state => ({
             ...state,
-            string: strings[currentWord].substring(0, currentLetter + 1),
+            string: strings[this.currentWord].substring(
+              0,
+              this.currentLetter + 1,
+            ),
           }));
-          currentLetter += 1;
-
-          setTimeout(() => {
-            this.typing(currentLetter, currentWord, speed, delay, loop);
-          }, speed);
+          this.currentLetter += 1;
         } else {
-          setTimeout(() => {
-            this.typing(currentLetter, currentWord, speed, delay, loop, true);
-          }, delay);
+          this.reverse = true;
+          ms = delay;
         }
       } else {
-        currentWord = 0;
-
-        this.typing(currentLetter, currentWord, speed, delay, loop);
+        this.currentWord = 0;
+        ms = 0;
       }
     } else {
-      if (currentLetter > 0) {
+      if (this.currentLetter > 0) {
         if (loop) {
           this.setState(state => ({
             ...state,
-            string: strings[currentWord].substring(0, currentLetter - 1),
+            string: strings[this.currentWord].substring(
+              0,
+              this.currentLetter - 1,
+            ),
           }));
-          currentLetter -= 1;
-
-          setTimeout(() => {
-            this.typing(
-              currentLetter,
-              currentWord,
-              speed,
-              delay,
-              loop,
-              reverse,
-            );
-          }, speed);
+          this.currentLetter -= 1;
+          this.reverse = true;
         } else {
-          if (strings.length - 1 !== currentWord) {
+          if (strings.length - 1 !== this.currentWord) {
             this.setState(state => ({
               ...state,
-              string: strings[currentWord].substring(0, currentLetter - 1),
+              string: strings[this.currentWord].substring(
+                0,
+                this.currentLetter - 1,
+              ),
             }));
-            currentLetter -= 1;
-
-            setTimeout(() => {
-              this.typing(
-                currentLetter,
-                currentWord,
-                speed,
-                delay,
-                loop,
-                reverse,
-              );
-            }, speed);
+            this.currentLetter -= 1;
+            this.reverse = true;
           }
         }
       } else {
-        currentWord += 1;
-
-        setTimeout(() => {
-          this.typing(currentLetter, currentWord, speed, delay, loop);
-        }, speed);
+        this.currentWord += 1;
+        this.reverse = false;
       }
     }
+    setTimeout(() => {
+      this.typing();
+    }, ms);
   }
 
   render(): React.ReactNode {

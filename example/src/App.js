@@ -6,12 +6,7 @@ import './index.css';
 export default class App extends React.PureComponent {
   render() {
     return (
-      <Typa
-        strings={['do', 'your', 'thing']}
-        speed={85}
-        delay={1200}
-        loop={true}
-      >
+      <Typa strings={['do', 'your', 'thing']} speed={85} delay={1200} loop>
         {string => (
           <React.Fragment>
             <span>{string}</span>
