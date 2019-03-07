@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Typa from 'typa-react';
+import Typa from '@sergonius/typa-react';
 import './index.css';
 
 export default class App extends React.PureComponent {

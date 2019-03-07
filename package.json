@@ -1,6 +1,6 @@
 {
   "name": "@sergonius/typa-react",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Make words type themselves",
   "author": "sergonius",
   "license": "MIT",
@@ -23,7 +23,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0"
   },

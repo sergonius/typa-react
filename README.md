@@ -17,8 +17,7 @@ yarn add @sergonius/typa-react
 It's a render prop, so you can use it however you want to.
 
 ```tsx
-import * as React from 'react';
-
+import React from 'react';
 import Typa from '@sergonius/typa-react';
 
 class Example extends React.PureComponent {
