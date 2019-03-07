@@ -15,7 +15,7 @@ interface State {
   reverse: boolean;
 }
 
-export default class ExampleComponent extends React.PureComponent<
+export default class Typa extends React.PureComponent<
   Props,
   State
 > {
