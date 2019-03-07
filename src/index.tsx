@@ -78,6 +78,7 @@ export default class Typa extends React.PureComponent<Props, State> {
         this.reverse = false;
       }
     }
+
     setTimeout(() => {
       this.typing();
     }, ms);
